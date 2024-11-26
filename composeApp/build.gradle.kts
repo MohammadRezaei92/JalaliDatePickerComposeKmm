@@ -6,7 +6,11 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("maven-publish")
 }
+
+group = "rezaei.mohammad"
+version = "1.0"
 
 kotlin {
     androidTarget {
@@ -77,3 +81,10 @@ dependencies {
     debugImplementation(compose.uiTooling)
 }
 
+afterEvaluate {
+    publishing {
+        repositories {
+            maven { }
+        }
+    }
+}
