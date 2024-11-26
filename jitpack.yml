@@ -1,2 +1,9 @@
 jdk:
   - openjdk17
+
+build:
+  commands:
+    # Run the Gradle tasks to zip the iOS frameworks
+    - ./gradlew zipIosArm64Framework
+    - ./gradlew zipIosX64Framework
+    - ./gradlew zipIosSimulatorArm64Framework
