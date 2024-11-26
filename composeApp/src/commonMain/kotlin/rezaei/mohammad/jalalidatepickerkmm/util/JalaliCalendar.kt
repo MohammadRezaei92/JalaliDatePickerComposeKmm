@@ -366,7 +366,7 @@ class JalaliCalendar {
     }
 
     override fun toString(): String {
-        return String.format("%04d-%02d-%02d", year, month, day)
+        return "$year-$month-$day"
     }
 
     override fun hashCode(): Int {

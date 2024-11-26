@@ -21,8 +21,6 @@ kotlin {
         }
     }
 
-    kotlin.applyDefaultHierarchyTemplate()
-
     listOf(
         iosX64(),
         iosArm64(),
