@@ -7,6 +7,7 @@ compose-multiplatform = "1.7.0"
 kotlin = "2.0.21"
 
 [libraries]
+kotlin-stdlib-common = { module = "org.jetbrains.kotlin:kotlin-stdlib-common", version.ref = "kotlin" }
 kotlinx-datetime = {module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.0"}
 
 [plugins]
