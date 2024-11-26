@@ -3,8 +3,16 @@ jdk:
 
 build:
   commands:
-    # Run the Gradle tasks to zip the iOS frameworks
+    # Clean and assemble Android part
     - ./gradlew clean
+    - ./gradlew assemble
+
+    # Build iOS targets
+    - ./gradlew linkReleaseFrameworkIosX64
+    - ./gradlew linkReleaseFrameworkIosArm64
+    - ./gradlew linkReleaseFrameworkIosSimulatorArm64
+
+    # Optionally, zip iOS frameworks if required
     - ./gradlew zipIosArm64Framework
     - ./gradlew zipIosX64Framework
     - ./gradlew zipIosSimulatorArm64Framework
