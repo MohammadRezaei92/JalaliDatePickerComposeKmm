@@ -83,10 +83,18 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
+            create<MavenPublication>("androidRelease") {
+                from(components["android"])
+
+                groupId = "com.github.MohammadRezaei92"  // Replace with your GitHub username
+                artifactId = "JalaliDatePickerComposeKmm"  // Replace with your artifact ID
+                version = "1.0.0"  // Replace with your desired version
+            }
+
             create<MavenPublication>("iosFramework") {
                 from(components["ios"])
                 groupId = "com.github.MohammadRezaei92"
-                artifactId = "JalaliDatePickerKMM"
+                artifactId = "JalaliDatePickerComposeKmm"
                 version = "1.0.0"
             }
         }
@@ -95,7 +103,7 @@ afterEvaluate {
                 url =
                     uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
                 credentials {
-                    username = System.getenv("GITHUB_ACTOR") ?: "JalaliDatePickerComposeKmm"
+                    username = System.getenv("GITHUB_ACTOR") ?: "MohammadRezaei92"
                     password = System.getenv("GITHUB_TOKEN") ?: "<your-personal-access-token>"
                 }
             }
