@@ -82,8 +82,23 @@ dependencies {
 
 afterEvaluate {
     publishing {
+        publications {
+            create<MavenPublication>("iosFramework") {
+                from(components["ios"])
+                groupId = "com.github.MohammadRezaei92"
+                artifactId = "JalaliDatePickerKMM"
+                version = "1.0.0"
+            }
+        }
         repositories {
-            maven { }
+            maven {
+                url =
+                    uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR") ?: "JalaliDatePickerComposeKmm"
+                    password = System.getenv("GITHUB_TOKEN") ?: "<your-personal-access-token>"
+                }
+            }
         }
     }
 }
