@@ -11,8 +11,3 @@ build:
     - ./gradlew linkReleaseFrameworkIosX64
     - ./gradlew linkReleaseFrameworkIosArm64
     - ./gradlew linkReleaseFrameworkIosSimulatorArm64
-
-    # Optionally, zip iOS frameworks if required
-    - ./gradlew zipIosArm64Framework
-    - ./gradlew zipIosX64Framework
-    - ./gradlew zipIosSimulatorArm64Framework
