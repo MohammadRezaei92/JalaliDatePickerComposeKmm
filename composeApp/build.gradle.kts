@@ -83,14 +83,6 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("androidRelease") {
-                from(components["android"])
-
-                groupId = "com.github.MohammadRezaei92"  // Replace with your GitHub username
-                artifactId = "JalaliDatePickerComposeKmm"  // Replace with your artifact ID
-                version = "1.0.0"  // Replace with your desired version
-            }
-
             create<MavenPublication>("iosFramework") {
                 from(components["ios"])
                 groupId = "com.github.MohammadRezaei92"
