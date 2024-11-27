@@ -82,14 +82,6 @@ dependencies {
 
 afterEvaluate {
     publishing {
-        publications {
-            create<MavenPublication>("iosFramework") {
-                from(components["ios"])
-                groupId = "com.github.MohammadRezaei92"
-                artifactId = "JalaliDatePickerComposeKmm"
-                version = "1.0.0"
-            }
-        }
         repositories {
             maven {
                 url =
