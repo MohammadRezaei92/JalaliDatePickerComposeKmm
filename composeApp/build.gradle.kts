@@ -79,6 +79,13 @@ dependencies {
 
 afterEvaluate {
     publishing {
+        publications {
+            withType<MavenPublication> {
+                groupId = "com.github.MohammadRezaei92"
+                artifactId = "JalaliDatePickerComposeKmm"
+                version = "1.0.12"  // Incremented version
+            }
+        }
         repositories {
             maven {
                 url =
