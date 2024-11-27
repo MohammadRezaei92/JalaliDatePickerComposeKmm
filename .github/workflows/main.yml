@@ -43,9 +43,7 @@ jobs:
       - name: Build iOS binaries
         run: ./gradlew :composeApp:assemble
 
-      # Step 6: Upload build artifacts (Optional)
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ios-framework
-          path: composeApp/build/bin/
+      - name: Publish to GitHub Packages
+        run: ./gradlew publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
