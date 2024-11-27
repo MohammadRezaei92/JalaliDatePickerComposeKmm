@@ -9,9 +9,6 @@ plugins {
     id("maven-publish")
 }
 
-group = "rezaei.mohammad"
-version = "1.0"
-
 kotlin {
     androidTarget {
         publishLibraryVariants("release")
