@@ -82,7 +82,7 @@ afterEvaluate {
         publications {
             withType<MavenPublication> {
                 groupId = "com.github.MohammadRezaei92"
-                artifactId = "JalaliDatePickerComposeKmm"
+                artifactId = "jalalidatepickercomposekmm"
                 version = "1.0.12"  // Incremented version
             }
         }
