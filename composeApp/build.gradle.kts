@@ -62,39 +62,27 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
-dependencies {
-    debugImplementation(compose.uiTooling)
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            withType<MavenPublication> {
-                groupId = "com.github.MohammadRezaei92"
-                artifactId = "jalalidatepickercomposekmm"
-                version = "1.1.0"  // Incremented version
-            }
+publishing {
+    publications {
+        withType<MavenPublication> {
+            groupId = "com.github.MohammadRezaei92"
+            artifactId = "jalalidatepickercomposekmm"
+            version = "1.1.0"  // Incremented version
         }
-        repositories {
-            maven {
-                url =
-                    uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
-                credentials {
-                    username = System.getenv("GITHUB_ACTOR") ?: "MohammadRezaei92"
-                    password = System.getenv("GITHUB_TOKEN") ?: "<your-personal-access-token>"
-                }
-            }
+    }
+    repositories {
+        maven {
+            name = "github"
+            url =
+                uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
+            credentials(PasswordCredentials::class)
         }
     }
 }
