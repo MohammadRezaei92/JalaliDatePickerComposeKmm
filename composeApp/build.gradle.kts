@@ -78,4 +78,13 @@ publishing {
             credentials(PasswordCredentials::class)
         }
     }
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "rezaei.mohammad" // Replace with your group ID
+            artifactId = "jalalidatepickerkmm" // Replace with your artifact ID
+            version = "1.0.0" // Replace with your version
+            // Include your library artifact
+            artifact("$buildDir/outputs/aar/composeApp-release.aar") // Adjust path as needed
+        }
+    }
 }
