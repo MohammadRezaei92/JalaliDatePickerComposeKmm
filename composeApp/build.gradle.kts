@@ -70,13 +70,6 @@ android {
 }
 
 publishing {
-    publications {
-        withType<MavenPublication> {
-            groupId = "com.github.MohammadRezaei92"
-            artifactId = "jalalidatepickercomposekmm"
-            version = "1.1.0"  // Incremented version
-        }
-    }
     repositories {
         maven {
             name = "github"
