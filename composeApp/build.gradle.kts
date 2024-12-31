@@ -9,6 +9,9 @@ plugins {
     id("maven-publish")
 }
 
+group = "rezaei.mohammad"
+version = "1.0.0"
+
 kotlin {
     androidTarget {
         publishLibraryVariants("release")
@@ -72,7 +75,7 @@ android {
 publishing {
     repositories {
         maven {
-            name = "github"
+            name = "GitHubPackages"
             url =
                 uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
             credentials(PasswordCredentials::class)
