@@ -39,4 +39,5 @@ jobs:
 
       - name: Publish To GitHub Packages
         run: |
+          chmod +x ./gradlew
           ./gradlew publishAllPublicationsToGithubPackagesRepository
