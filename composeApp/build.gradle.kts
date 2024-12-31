@@ -6,11 +6,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    id("maven-publish")
+    alias(libs.plugins.publishMaven)
 }
-
-group = "rezaei.mohammad"
-version = "1.0.0"
 
 kotlin {
     androidTarget {
@@ -19,7 +16,9 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
+        publishLibraryVariants("release", "debug")
     }
+
 
     listOf(
         iosX64(),
@@ -81,13 +80,42 @@ publishing {
             credentials(PasswordCredentials::class)
         }
     }
-    publications {
-        create<MavenPublication>("release") {
-            groupId = "rezaei.mohammad" // Replace with your group ID
-            artifactId = "jalalidatepickerkmm" // Replace with your artifact ID
-            version = "1.0.0" // Replace with your version
-            // Include your library artifact
-            artifact("$buildDir/outputs/aar/composeApp-release.aar") // Adjust path as needed
+}
+
+mavenPublishing {
+    // Define coordinates for the published artifact
+    coordinates(
+        groupId = "rezaei.mohammad",
+        artifactId = "jalalidatepickerkmm",
+        version = "1.0.0"
+    )
+
+    // Configure POM metadata for the published artifact
+    pom {
+        name.set("Jalali DataPicker KMM")
+        description.set("Compose multiplatform jalali date picker")
+        inceptionYear.set("2024")
+        url.set("https://github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        // Specify developers information
+        developers {
+            developer {
+                id.set("<GITHUB_USER_NAME>")
+                name.set("<GITHUB_ACTUAL_NAME>")
+                email.set("<GITHUB_EMAIL_ADDRESS>")
+            }
+        }
+
+        // Specify SCM information
+        scm {
+            url.set("https://github.com/<GITHUB_USER_NAME>/MathLibGuide")
         }
     }
 }
