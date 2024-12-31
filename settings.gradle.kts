@@ -12,6 +12,11 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            name = "gitHubPackages"
+            url = uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
+            credentials(PasswordCredentials::class)
+        }
     }
 }
 
@@ -25,6 +30,11 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven {
+            name = "gitHubPackages"
+            url = uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
+            credentials(PasswordCredentials::class)
+        }
     }
 }
 

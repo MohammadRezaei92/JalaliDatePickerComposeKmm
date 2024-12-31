@@ -28,6 +28,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            freeCompilerArgs += listOf("-Xbinary=bundleId=rezaei.mohammad.jalalidatepickerkmm")
         }
     }
     
@@ -54,6 +55,10 @@ android {
     namespace = "rezaei.mohammad.jalalidatepickerkmm"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
@@ -69,6 +74,22 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+    dependencies {
+        debugImplementation(compose.uiTooling)
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
+        abortOnError = false
+    }
+}
+
+compose.resources {
+    generateResClass = always
 }
 
 publishing {
