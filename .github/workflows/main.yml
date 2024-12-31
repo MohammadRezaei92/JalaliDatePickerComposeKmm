@@ -1,53 +1,23 @@
-name: Build iOS Framework
-
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  release:
+    types: [ created ]
 
 jobs:
-  build-ios:
-    name: Build iOS Framework
+  release:
     runs-on: macos-latest
-
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 2: Set up Java (Kotlin/Gradle requires a JDK)
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      - name: Setup Java
+        uses: actions/setup-java@v1
         with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-
-      # Step 3: Cache Gradle dependencies
-      - name: Cache Gradle
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      # Step 5: Build the iOS Framework
-      - name: Build iOS binaries
-        run: ./gradlew :composeApp:assemble
-
+          java-version: 11
       - name: Publish
         run: |
-           cd ${GITHUB_WORKSPACE}
-           chmod +x ./gradlew
-           ./gradlew check publish --no-configure-on-demand --no-daemon
+          cd ${GITHUB_WORKSPACE}
+          chmod +x ./gradlew
+          ./gradlew check publish --no-configure-on-demand --no-daemon
         env:
-           ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
-           ORG_GRADLE_PROJECT_githubPassword: ${{ github.token }}
+          ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
+          ORG_GRADLE_PROJECT_githubPassword: ${{ github.token }}
