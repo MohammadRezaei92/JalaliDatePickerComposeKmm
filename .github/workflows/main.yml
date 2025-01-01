@@ -32,8 +32,8 @@ jobs:
           ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
           ORG_GRADLE_PROJECT_githubPassword: ${{ github.token }}
         run: |
-          echo "githubPackagesUsername=${GITHUB_PACKAGES_USER_NAME}" >> gradle.properties
-          echo "githubPackagesPassword=${GITHUB_PACKAGES_PASSWORD}" >> gradle.properties
+          echo "gitHubPackagesUsername=${GITHUB_PACKAGES_USER_NAME}" >> gradle.properties
+          echo "gitHubPackagesPassword=${GITHUB_PACKAGES_PASSWORD}" >> gradle.properties
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
