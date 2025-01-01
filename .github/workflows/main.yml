@@ -29,6 +29,8 @@ jobs:
         env:
           GITHUB_PACKAGES_USER_NAME: ${{ secrets.GH_PACKAGES_USER_NAME }}
           GITHUB_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
+          ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
+          ORG_GRADLE_PROJECT_githubPassword: ${{ github.token }}
         run: |
           echo "githubPackagesUsername=${GITHUB_PACKAGES_USER_NAME}" >> gradle.properties
           echo "githubPackagesPassword=${GITHUB_PACKAGES_PASSWORD}" >> gradle.properties
