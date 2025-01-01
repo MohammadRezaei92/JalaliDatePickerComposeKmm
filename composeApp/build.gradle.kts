@@ -98,7 +98,10 @@ publishing {
             name = "GitHubPackages"
             url =
                 uri("https://maven.pkg.github.com/MohammadRezaei92/JalaliDatePickerComposeKmm")
-            credentials(PasswordCredentials::class)
+            credentials {
+                username = System.getenv("GITHUB_PACKAGES_USER_NAME")
+                password = System.getenv("GITHUB_PACKAGES_PASSWORD")
+            }
         }
     }
 }
