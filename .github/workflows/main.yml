@@ -41,5 +41,6 @@ jobs:
 
       - name: Publish To GitHub Packages
         run: |
+          cd ${GITHUB_WORKSPACE}
           chmod +x ./gradlew
           ./gradlew publishAllPublicationsToGithubPackagesRepository
