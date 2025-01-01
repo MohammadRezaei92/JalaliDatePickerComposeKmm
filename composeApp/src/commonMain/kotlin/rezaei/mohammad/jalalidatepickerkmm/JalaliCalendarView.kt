@@ -42,11 +42,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import jalalidatepickerkmm.composeapp.generated.resources.Res
+import jalalidatepickerkmm.composeapp.generated.resources.round_event_24
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import rezaei.mohammad.composeapp.generated.resources.Res
-import rezaei.mohammad.composeapp.generated.resources.round_event_24
 import rezaei.mohammad.jalalidatepickerkmm.theme.PersianCalendarTheme
 import rezaei.mohammad.jalalidatepickerkmm.theme.backgroundColor
 import rezaei.mohammad.jalalidatepickerkmm.theme.selectedIconColor
